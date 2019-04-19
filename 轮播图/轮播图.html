@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+* {margin:0; padding:0; }
+li{list-style:none; }
+
+#div1 {width:850px; height:500px; margin:50px auto; overflow:hidden; position:relative;}
+#div1 ul li{height:500px;opacity: 0;position: absolute;left: 0;top: 0;z-index: 0;transition: opacity 1s;}
+#div1 ul li.ac{z-index: 5;opacity: 1;}
+#div1 ol {position:absolute;right: 10%;bottom: 10px;z-index:6}
+#div1 ol li{width: 20px;height: 20px;background: #fff;margin-left: 5px;float: left;line-height: 20px;text-align: center;cursor: pointer;}
+#div1 ol li.ac{background: red;color: #fff;}
+#div1>a{text-decoration: none;position: absolute;top: 50%;margin-top: -10px;height: 40px;line-height: 32px;text-align: center;width: 40px;font-size: 40px;vertical-align: middle;color: #fff;background: rgba(0,0,0,0.5);z-index:6;}
+#goPrev{left: 0;}
+#goNext{right: 0;}
+img{width:850px; height:500px;}
+</style>
+</head>
+
+<body>
+<div id="div1">
+	<ul>
+    	<li class="ac"><a href="javascript:alert('第1张');"><img src="1.jpg" /></a></li>
+    	<li><a href="javascript:alert('第2张');"><img src="2.jpg" /></a></li>
+    	<li><a href="javascript:alert('第3张');"><img src="3.jpg" /></a></li>
+    	<li><a href="javascript:alert('第4张');"><img src="4.jpg" /></a></li>
+    	<li><a href="javascript:alert('第5张');"><img src="5.jpg" /></a></li>
+    </ul>
+    <ol>
+    	<li class="ac">1</li>
+    	<li>2</li>
+    	<li>3</li>
+    	<li>4</li>
+    	<li>5</li>
+    </ol>
+    <a href="javascript:;" id="goPrev">&laquo;</a>
+    <a href="javascript:;" id="goNext">&raquo;</a>
+</div>
+<script>
+
+var tools={
+				getStyle:function(obj,attr){
+					return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj,false)[attr];
+				},
+				move: function (obj, attr, end) {
+		
+		// 清除上一次的定时器
+		clearInterval(obj.timer);
+		// 获取起点值
+		var start = parseInt(this.getStyle(obj, attr));
+		// 开始运动
+		obj.timer = setInterval(function () {
+			// 剩下的距离
+			var distance = end - start;
+			// 速度（这一步走得距离）
+			// 正向靠近的时候速度0.9向上取整变为1，负向接近的时候速度-0.9向下取整变为-1
+			var speed = distance > 0 ? Math.ceil(distance / 10) : Math.floor(distance / 10);
+			// 修改start本身
+			start += speed;
+			obj.style[attr] = start + "px";
+			// 判断终点
+			// 由于最后十步一定是一像素的移动，所以一定能相等
+			if(start === end) {
+				clearInterval(obj.timer);
+
+			}
+		}, 20);
+	}
+			}
+      function Fn(selector){
+        this.container=document.querySelector(selector);
+       this.init();
+    }
+    Fn.prototype.init=function(){
+        this.imgs=this.container.querySelector('ul').children;
+        this.btns=this.container.querySelector('ol').children;
+        this.prev=this.container.querySelector('#goPrev');
+        this.next=this.container.querySelector('#goNext');
+        this.index=0;
+        this.lastIndex=0;
+        this.timer=null;
+        this.bindEvents();
+        this.autoPlay();
+    }
+    Fn.prototype.bindEvents=function(){
+        
+     
+        Array.from(this.btns).forEach(function(btn,i){
+            
+            btn.onclick=()=>{
+               this.index=i;
+               
+               
+                this.changeImg();
+            }
+        }.bind(this) )
+
+
+        this.prev.onclick=()=>{
+            this.index--;
+            if(this.index<0){
+                this.index=this.btns.length-1;
+                
+            } 
+            this.changeImg();
+        }
+
+
+        this.next.onclick=function(){
+            this.index++;
+            if(this.index>this.btns.length-1) this.index=0;
+            this.changeImg();
+        }.bind(this)
+
+        this.container.onmouseenter=function(){
+            clearInterval(this.timer)
+        }.bind(this);
+
+        this.container.onmouseleave=function(){
+            this.autoPlay();
+
+        }.bind(this)
+
+    }
+    Fn.prototype.changeImg=function(){
+       
+        
+        this.btns[this.lastIndex].classList.remove("ac");
+        if(this.lastIndex<this.index){
+            if((this.lastIndex===0)&&(this.index===this.btns.length-1)){        //判断当上一张图的序号为0  下一张序号为5时
+                this.imgs[this.index].style.left=-this.imgs[this.index].offsetWidth+"px";//将下一张将要显示的图片放在左边
+                tools.move(this.imgs[this.lastIndex],'left',this.imgs[this.lastIndex].offsetWidth);//将上一张图片向右移动
+                tools.move(this.imgs[this.index],'left',0);//将图片向左移动
+            }else{
+                this.imgs[this.index].style.left=this.imgs[this.index].offsetWidth+"px";
+                tools.move(this.imgs[this.lastIndex],'left',-this.imgs[this.lastIndex].offsetWidth);
+                tools.move(this.imgs[this.index],'left',0)
+                }
+            
+        }
+        
+
+          if(this.lastIndex>this.index){
+            if((this.lastIndex===this.btns.length-1)&&(this.index===0)){//判断当上一张为4时，下一张为0时；
+            
+            this.imgs[this.index].style.left=this.imgs[this.index].offsetWidth+"px";//将下一张将要显示的图片放在右边
+            tools.move(this.imgs[this.lastIndex],'left',-this.imgs[this.lastIndex].offsetWidth);//将上一张图片向左移动
+            tools.move(this.imgs[this.index],'left',0);//将图片向左移动
+
+        }else{
+            this.imgs[this.index].style.left=-this.imgs[this.index].offsetWidth+"px";//将下一张将要显示的图片放在左边
+            tools.move(this.imgs[this.lastIndex],'left',this.imgs[this.lastIndex].offsetWidth);//将上一张图片向右移动
+            tools.move(this.imgs[this.index],'left',0);//将图片向左移动
+
+            }
+            
+
+        }
+       
+       
+        
+        
+       
+       
+        this.btns[this.index].classList.add('ac');
+        this.imgs[this.index].classList.add('ac');
+        this.lastIndex=this.index;
+    }
+    Fn.prototype.autoPlay=function(){
+       this.timer=setInterval(function(){
+            this.next.onclick();
+        }.bind(this),2000)
+    }
+
+   
+    new Fn("#div1");
+
+</script>
+</body>
+</html>
+

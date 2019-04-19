@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/index.css">
+	</head>
+	<body>
+		<button id="log">内容发布</button>
+		<div id="container" class="box"></div>
+		<div id="content"></div>
+		
+		<script type="text/javascript" src="js/tools.js"></script>
+			
+		
+		<script type="text/javascript">
+			
+			
+			function Fn(log){
+				this.log=document.querySelector(log);
+				this.container=document.querySelector("#container")
+				this.content=document.querySelector("#content")
+				this.time=0;
+				this.bindEvents();
+			}
+			Fn.prototype.bindEvents=function(){
+				this.log.onclick=this.popWindow.bind(this);
+				this.container.onclick=(e)=>{
+					e = e || window.event;
+				let target = e.target || e.srcElement;
+				if(target.id === "closeBtn") {
+				this.container.style.display = "none";
+				document.body.removeChild(this.modal);
+			   }else if (target.id === "pubBtn"){
+				// 发布按钮
+				this.container.style.display = "none";
+				document.body.removeChild(this.modal);
+				let username = document.querySelector("#username").value;
+				let password = document.querySelector("textarea").value;
+				let date=new Date();
+				 this.time=date.getTime();
+				this.popText(username, password,date);
+				} 
+				}
+
+				this.content.oncontextmenu=(e)=>{
+					console.log(this.content)
+					e = e || window.event;
+					console.log(e)
+				let target = e.target || e.srcElement;
+				window.event.returnValue=false;
+				let menu=document.createElement("ul")
+				menu.innerHTML=`
+					<li class="del">取消</li>
+					<li class="re">撤回</li>
+				 `
+				 let div=this.content.querySelector(".div");
+				 div.appendChild(menu);
+
+				 let ul=this.content.querySelector('ul');
+				
+				 ul.style.left=e.clientX+"px";
+				 ul.style.top=e.clientY+"px";
+				 let del=ul.querySelector(".del")
+				 let re=ul.querySelector(".re")
+				  del.onclick=()=>{
+					del.parentNode.remove();				
+				}
+				re.onclick=()=>{
+					let date=new Date();
+				    if((date.getTime()-this.time)<10000) re.parentNode.parentNode.remove();
+					else{
+						alert("超过了10秒不能撤回")
+					}
+				}
+				
+				}
+				
+			}
+			
+			Fn.prototype.popWindow=function(){
+				this.container.innerHTML=`<h4>内容发布</h4>
+			<a id="closeBtn" class="close_btn" href="javascript:;">X</a>
+			<p><label>用户名：<input id="username" type="text"></label></p>
+			<p>内容</p>
+			<Textarea></Textarea>
+			<p><button id="pubBtn" class="pubBtn" type="button">点击发布</button></p>`;
+			tools.showCenter(this.container);
+			this.modal = document.createElement("div");
+			this.modal.className = "modal"
+			document.body.appendChild(this.modal);
+			
+			}
+			Fn.prototype.popText=function(username, password,date){
+				let div=document.createElement("div");
+				div.classList.add("div");
+				div.innerHTML=`
+				<h4>用户名：${username}</h4>
+				<div>${password}</div>
+				<p>${date}</p>`;
+				
+				this.content.appendChild(div);
+			}
+			
+			new Fn("#log")
+			
+		</script>
+	</body>
+</html>
