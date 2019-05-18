@@ -1,0 +1,18 @@
+.fixed{
+    position: fixed;
+    top:50%;
+    right:30px;
+    width:50px;
+    height: 100px;
+    z-index: 100;
+    opacity: 0.8;
+    span{
+        display: inline-block;
+        background: palevioletred;
+        color:white;
+        width:20px;
+        height: 20px;
+        text-align: center;
+        border-radius: 10px;
+    }
+}

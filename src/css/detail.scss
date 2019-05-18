@@ -1,0 +1,47 @@
+@import "module/header.scss";
+@import "module/footer.scss";
+@import "module/fixed.scss";
+ul,ol li{
+    list-style: none;
+}
+#shop-img{
+    margin-top:20px ;
+    .view-ul{
+        margin-top:20px;
+        li img{
+            border:2px solid #666;
+            border-radius: 5px;
+        }
+    }
+    .purchase{
+        p{
+            margin:20px 0px;
+        }
+        .gift{
+            display:inline-block;
+            border:1px solid #ff00ff;
+            background:#f77;
+            margin-right:10px;
+        }
+       
+        .count{
+            a{  text-decoration: none;
+                text-align: center;
+                line-height: 30px;
+
+                display:inline-block;
+                width:30px;
+                height: 30px;
+                border:1px solid #999;
+            }
+            input{
+                outline: none;
+                width:50px;
+                height:30.5px;
+                
+              
+            }
+
+        }
+    }
+}

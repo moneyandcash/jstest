@@ -1,0 +1,85 @@
+<div class="container-fluid">
+  <ul class="col-xs-3 col-xs-offset-1">
+    <li>文字</li>
+
+  </ul>
+</div>
+
+<div class="container ">
+  <div class="row">
+    <div class="col-xs-4">
+      <a href="/"><img src="https://js01.daoju.qq.com/zb/common/images/ico-comm5.png" alt=""></a>
+      <a href="/"><img src="https://js01.daoju.qq.com/zb/pvpmall/images/logo-pvpmall.png" alt=""></a>
+    </div>
+    <div class="col-xs-6 col-xs-push-3 ">
+      <div class="col-xs-6 " id="search">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        <input type="text" placeholder="请输入你想要找的宝贝">
+        <div class="result"></div>
+      </div>
+      <div class="col-xs-6" id="cart">
+
+        <span class="user text-danger "></span>
+        <button class="btn btn-danger btn-xs user logout ">退出</button>
+
+        <a class="btn btn-info btn-xs log" data-toggle="modal" data-target="#Modal">
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 立即登陆
+        </a>
+
+        <a href="/html/cart.html" class="btn btn-info btn-xs header-cart">
+          <span class="header-count h4  bg-primary" id="cartNum">1</span>
+          <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>购物车
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+</div>
+
+<div class="container" id="container-fluid">
+  <nav class="container navbar navbar-default ">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-inverse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">首页<span class="sr-only">(current)</span></a></li>
+          <li><a href="/html/product.html">精品热销</a></li>
+          <li><a href="/html/product.html">精品手办</a></li>
+          <li><a href="/html/product.html">数码3c</a></li>
+          <li><a href="/html/product.html">日用配饰</a></li>
+          <li><a href="/html/product.html">毛绒抱枕</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+
+          <li class="dropdown">
+            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+              aria-expanded="false">商品分类 <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="javascript:;">1</a></li>
+              <li><a href="javascript:;">2</a></li>
+              <li><a href="javascript:;">3</a></li>
+
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+</div>
+
+<script type="text/html" id="input-search">
+  <div class="list-group " id="search-result">
+      {{each data a}}
+      <a href="/html/cart.html" class="list-group-item">{{a}}</a>
+      {{/each}}
+    </div>
+
+</script>

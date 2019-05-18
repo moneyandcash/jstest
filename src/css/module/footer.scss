@@ -1,0 +1,30 @@
+footer{
+    background:black;
+    a{
+        color:#666;
+        &:hover{
+            color:white;
+            text-decoration: none;
+        }
+    }
+    span{
+        color:#666;
+    }
+    #footer{
+        margin:40px 0px;
+        p{
+            color:white;
+            margin-top:20px;
+        }
+        >.container{
+            border-right: 1px solid #666;
+            height:200px;
+            li:nth-child(3){
+                line-height: 100px;
+            }
+            li:nth-child(4){
+                line-height: 100px;
+            }
+        }
+    }
+}

@@ -1,0 +1,75 @@
+header {
+    height:300px;
+    background:black;
+   
+    
+    #container-fluid{
+      
+       
+        margin-top: 30px;
+        .navbar{
+            border:none;
+            padding:0;
+        }
+        .container-fluid{
+            background: #000;
+            border:none;
+            
+            .navbar-collapse{
+                
+                background: #000;
+            }
+        }
+    }
+    .row{
+        display: flex;
+        align-items: center;
+    
+        #search{
+            display:flex;
+            width:220px;
+            height:30px;
+            background: black;
+            color:white;
+            border-radius: 15px;
+            background:#242424;
+            align-items: center;
+            position: relative;
+            .result{
+                position: absolute;
+                left:20px;
+                top:35px;
+                color:white;
+               
+                z-index: 5;
+                
+            }
+            
+            .glyphicon-search{
+                color:#828282;
+                
+            }
+            input{
+                border:none;
+                flex:1;
+                outline: none;
+                background:#242424;
+
+            }
+        
+        }
+        #cart{
+            
+            line-height: 30px;
+            a{
+                color:white;
+                margin: 0 20px;
+            }
+        }
+
+
+    }
+
+    
+    
+}

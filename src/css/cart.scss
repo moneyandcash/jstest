@@ -1,0 +1,39 @@
+@import "module/header.scss";
+@import "module/footer.scss";
+@import "module/fixed.scss";
+table{
+    table-layout: fixed;
+    input[type="checkbox"]{
+        width:20px;
+        height:20px;
+    }
+    tbody{
+        
+        tr{
+            height:100px;
+            input[type="text"]{
+                width:34px;
+                height: 34px;
+                text-align: center;
+               
+                outline: none;
+                
+            }
+            
+        }
+        
+        
+    }
+
+    tfoot{
+        .total{
+            font-size: 30px;
+            color:red;
+        }
+        .totalNum{
+            font-size:30px;
+            color:red;
+            padding:10px;
+        }
+    }
+}

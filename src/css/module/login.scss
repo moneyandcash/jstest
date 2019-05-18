@@ -1,0 +1,30 @@
+
+
+#img-left{
+
+    position:fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background:url(https://4.url.cn/zc/v3/img/01-3.jpg) ;
+    background-size: 100%;
+}
+body{
+    height:800px;
+}
+body .container .row{
+    margin:40px 0px;
+    
+}
+ input[type="text"]{
+     height:50px;
+     outline: none;
+     border: 1px solid #000;
+     border-radius: 3px;
+ }
+ 
+// #phone{
+//     display:flex;
+//     justify-content: center;
+    
+// }

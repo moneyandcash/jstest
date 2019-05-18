@@ -1,0 +1,56 @@
+<div class="container">
+
+    <div class="page-header">
+        <h1>精品推荐 <small> 精选周边，酷炫来袭</small></h1>
+    </div>
+
+    <div class="row ">
+        <a href=""><img src="https://game.gtimg.cn/images/daojushop/zb/ad/201811/20181101153552_563052.jpg" alt="" ></a>
+    </div>
+    <div id="shop1"></div>
+    <script type="text/html" id="shopName1">
+
+    <div class="row ">
+        {{each list a}}
+        <div class="col-xs-6 col-md-3 box-shadow">
+        <a href="/html/detail.html?id={{a.id}}" class="thumbnail text-center ">
+            <img src={{a.img}} alt="">
+            <div>
+                <p>{{a.title}}</p>
+                <p>{{a.price}}</p>
+            </div>
+        </a>
+    </div>
+        {{/each}}
+    </div>
+    </script>
+
+
+    <div class="page-header">
+        <h1>精品推荐 <small> 精选周边，酷炫来袭</small></h1>
+    </div>
+
+    <div class="row ">
+        <a href=""><img src="https://game.gtimg.cn/images/daojushop/zb/ad/201807/20180725180059_293499.jpg" alt=""></a>
+    </div>
+    <div id="shop2"></div>
+    <script type="text/html" id="shopName2">
+
+<div class="row ">
+{{each list a}}
+<div class="col-xs-6 col-md-3 box-shadow">
+<a href="#" class="thumbnail text-center ">
+    <img src={{a.img}} alt="">
+    <div>
+        <p>{{a.title}}</p>
+        <p>{{a.price}}</p>
+    </div>
+</a>
+</div>
+{{/each}}
+</div>
+</script>
+
+
+
+</div>

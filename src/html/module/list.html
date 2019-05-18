@@ -1,0 +1,16 @@
+<script type="text/html" id="shopList">
+
+    <div class="container ">
+        {{each list a}}
+        <div class="col-xs-6 col-md-3 box-shadow">
+        <a href="/html/detail.html?id={{a.id}}" class="thumbnail text-center">
+            <img src={{a.img}} alt="">
+            <div>
+                <p>{{a.title}}</p>
+                <p>{{a.price}}</p>
+            </div>
+        </a>
+    </div>
+        {{/each}}
+    </div>
+    </script>

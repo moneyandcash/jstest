@@ -1,0 +1,32 @@
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal" data-whatever="@mdo">Open modal for @mdo</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal" data-whatever="@fat">Open modal for @fat</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>
+...more buttons... -->
+
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="ModalLabel">快速安全登录</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="username" class="control-label">账号</label>
+            <input type="text" class="form-control" id="username" placeholder="支持QQ号/邮箱/手机号登录">
+          </div>
+          <div class="form-group">
+            <label for="password" class="control-label">密码</label>
+            <input type="password" class="form-control" id="password" placeholder="密码">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <input type="checkbox" class="remember">七天免登陆
+        <button type="button" class="btn btn-success" id="register">立即注册</button>
+        <button type="button" class="btn btn-primary" id="login">登陆</button>
+      </div>
+    </div>
+  </div>
+</div>

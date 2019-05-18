@@ -1,0 +1,41 @@
+@import "module/header.scss";
+@import "module/banner.scss";
+@import "module/footer.scss";
+@import "module/fixed.scss";
+*{margin:0;padding:0;}
+ul,ol{
+    li{
+        list-style: none;
+    }
+}
+.swiper-container{
+    
+    img{
+        width:100%;
+        height: auto;
+    }
+}
+
+main{
+    .row{
+        margin-top:20px;
+        
+    }
+}
+
+.box-shadow{
+    a{
+        background: #eee;
+        color:black;
+        text-decoration: none;
+        &:hover{
+            box-shadow:1px 1px 16px 3px #666;
+            transform: translate(-1px,1px);
+            transition: all 1s;
+           } 
+    }
+  
+}
+// a{
+//     text-decoration: none;
+// }

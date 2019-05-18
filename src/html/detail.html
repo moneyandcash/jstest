@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>详情页</title>
+    <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/detail.css">
+    <script src="/libs/jquery/jquery-3.2.1.js"></script>
+    <script src="/libs/bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <header></header>
+    <div class="fixed"></div>
+    <div id="modal"></div>
+    <script id="detail-template" type="text/html">
+        <div class="container" id="shop-img">
+                <div class="col-md-5 ">
+                            <div class="view_bd">
+                                <img class="zoom-img img-responsive" src="{{data.imgs[0]}}" data-zoom-image="{{data.imgs[0]}}"/>
+                            </div>
+                            <div class="view_thumbs" id="gal1">
+                                <ul class="view-ul col-md-12">
+                                    <li class="current col-md-3">
+                                        <a href="#" data-image="{{data.imgs[0]}}" data-zoom-image="{{data.imgs[0]}}">
+                                            <img class="s img-responsive" src="{{data.imgs[0]}}" />
+                                        </a>
+                                    </li>
+                                    <li class="col-md-3">
+                                        <a href="#" data-image="{{data.imgs[1]}}" data-zoom-image="{{data.imgs[1]}}">
+                                        <img class="s img-responsive" src="{{data.imgs[1]}}" /></a>
+                                    </li>
+                                    <li class="col-md-3">
+                                        <a href="#" data-image="{{data.imgs[2]}}" data-zoom-image="{{data.imgs[2]}}">
+                                        <img class="s img-responsive" src="{{data.imgs[2]}}" /></a>
+                                    </li>
+                                    <li class="col-md-3">
+                                        <a href="#" data-image="{{data.imgs[3]}}" data-zoom-image="{{data.imgs[3]}}">
+                                        <img class="s img-responsive" src="{{data.imgs[3]}}" /></a>
+                                    </li>
+                                   
+                                </ul>
+                            </div>
+                            
+                       
+                    </div>
+                
+                <div class="col-md-6 col-md-offset-1 purchase">
+                    <h3>{{data.title}}</h3>
+                    <p>{{data.subTitle}}</p>
+                    <h3 class="text-danger">{{data.price}}</h3>
+                    <p><span class="gift">赠品</span> {{data.gift}}</p>
+                    <p>已售：<span>{{data.sold}}</span> 累计评价:<span>{{data.commit}}</span>  </p>
+                    <p class="count">数量 <a href="javascript:;">+</a><input type="text"><a href="javascript:;">-</a>（库存充足）</p>
+                    <p><button type="button" class="btn btn-danger btn-lg" id="shop-cart">加入购物车</button><button type="button" class="btn btn-danger col-md-offset-1 btn-lg" id="shop-purchase">立即购买</button> <a href="javascript:;">收藏</a></p>
+                </div>
+            
+            
+        </div>
+        <div class="container" id="shop-particulars">
+            <div class="row">
+                <a href="">商品详情</a>
+                <a href="">用户点评<span>(0)</span></a>
+                <a href="">联系商家</a>
+            </div>
+            <div class="row">
+        
+            </div>
+            <div class="row"></div>
+            <div class="row"></div>
+        </div>
+        </script>
+    <main>
+        
+    </main>
+    <footer></footer>
+
+</body>
+<script src="/libs/requirejs/require.min.js" data-main="/js/detail.js"></script>
+
+</html>
